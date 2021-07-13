@@ -3,9 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -23,21 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- file part 처리 -->
-	<beans:bean id="multipartResolver" 
-	class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	<!-- 파일 업로드 객체 설정 --> 
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<beans:property name="maxUploadSize" value="10485760"/><!-- 10MB -->
 	</beans:bean>
-	
+
 	<context:component-scan base-package="org.zerock.controller" />
+ 	<context:component-scan base-package="org.zerock.product.controller" />
+	<context:component-scan base-package="org.zerock.RevBoard.controller" />
+	<context:component-scan base-package="org.zerock.user.controller" />
+	<context:component-scan base-package="org.zerock.qaboard.controller" />
+	<context:component-scan base-package="org.zerock.freeboard.controller" />
 	
-	<security:global-method-security pre-post-annotations="enabled"></security:global-method-security>
+	
 	
 </beans:beans>
-
-
-
-
-
-
-
-

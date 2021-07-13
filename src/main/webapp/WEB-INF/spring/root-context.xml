@@ -18,10 +18,11 @@
 		<property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://13.124.135.12/untact"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="wnddkdwjdqhcjfl1"></property>
-		<property name="maximumPoolSize" value="1"></property>
+		<property name="maximumPoolSize" value="2"></property>
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+	      destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>
 	
@@ -29,29 +30,28 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-	<bean id="transactionManager" 
-	      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-	      <property name="dataSource" ref="dataSource"></property>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 	 <constructor-arg ref="dataSource" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="org.zerock.mapper"/>
+<!-- 	<mybatis-spring:scan base-package="org.zerock.service"/> -->
+  <mybatis-spring:scan base-package="org.zerock.product.mapper"/>
+	<mybatis-spring:scan base-package="org.zerock.RevBoard.mapper"/>
+	<mybatis-spring:scan base-package="org.zerock.user.mapper"/>
+	<mybatis-spring:scan base-package="org.zerock.qaboard.mapper"/>
+	<mybatis-spring:scan base-package="org.zerock.freeboard.mapper"/>
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<context:component-scan base-package="org.zerock.sample"></context:component-scan>
+	<!-- <context:component-scan base-package="org.zerock.service"></context:component-scan> -->
+ 	<context:component-scan base-package="org.zerock.product.service"></context:component-scan>
+	<context:component-scan base-package="org.zerock.qaboard.service"></context:component-scan>
+	<context:component-scan base-package="org.zerock.RevBoard.service"></context:component-scan>
+	<context:component-scan base-package="org.zerock.user.service"></context:component-scan>
+	<context:component-scan base-package="org.zerock.freeboard.service"></context:component-scan>
 	
-	<context:component-scan base-package="org.zerock.service"></context:component-scan>
 	
-	<!-- transaction -->
 	<tx:annotation-driven/>
-
-	<!-- 패키지 -->
-	<context:component-scan base-package="com.zeroheat.domain" />
-	<context:component-scan base-package="com.zeroheat.persistence" />
-	<context:component-scan base-package="com.zeroheat.service" />
-	
-</beans>
-
-
+</beans> 
 
 
 

@@ -28,7 +28,7 @@ $(document).ready(function() {
 	})
 });
 </script>
-<title>BCD쇼핑몰</title>
+<title>쇼핑몰</title>
 </head>
 <style>
 #container {
@@ -240,7 +240,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
 	//서버 ip주소 입력
-	var webSocket = new WebSocket('ws://140.238.30.15:8080/${root}/broadcasting');
+	var webSocket = new WebSocket('ws://13.124.135.12:8080/${root}/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
 		onError(event)

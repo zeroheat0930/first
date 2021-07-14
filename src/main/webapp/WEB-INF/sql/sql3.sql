@@ -17,5 +17,23 @@ product_seq int(10) PRIMARY KEY,
     product_like int(255)  NOT NULL
     );
   
-  
-  SELECT     product_seq, product_name, product_price, product_quantity, product_seller, product_filename,      product_info, category_seq, product_readcnt, product_status, product_regdate, product_updatedate,      user_nickname, product_like     FROM     (      SELECT        ROW_NUMBER() OVER ( ORDER BY                 product_readcnt DESC                ) rn, product_seq, product_name, product_price, product_quantity, product_seller,        product_filename, product_info, category_seq, product_readcnt, product_status, product_regdate,        product_updatedate, user_nickname, product_like    FROM       tbl_product                          )    WHERE     rn BETWEEN (? - 1) * ? + 1 AND ? * ?
+  SELECT
+    A.product_seq, 
+    A.product_name, 
+    A.product_price, 
+    A.product_quantity, 
+    A.product_seller, 
+    A.product_filename,
+    A.product_info, A.category_seq, 
+    A.product_readcnt, A.product_status, 
+    A.product_regdate, A.product_updatedate,
+    A.user_nickname, A.product_like
+FROM
+    (      SELECT
+        ROW_NUMBER() OVER ( ORDER BY product_readcnt DESC ) rn, 
+        product_seq, 
+        product_name, product_price, product_quantity, 
+        product_seller,  product_filename, product_info, category_seq, 
+        product_readcnt, product_status, product_regdate, product_updatedate, user_nickname, product_like    FROM       tbl_product )  A 
+    WHERE     A.rn BETWEEN (? - 1) * ? + 1 AND ? * ?;
+    

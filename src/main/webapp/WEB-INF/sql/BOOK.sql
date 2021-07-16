@@ -170,3 +170,19 @@ product_updatedate date,
 product_like number(38) default 0
 );
 
+create table tbl_category(
+category_seq number(10) primary key,
+category_main varchar2(100) not null,
+category_sub varchar2(100) not null
+);
+
+
+
+insert into tbl_product (product_seq, product_name, product_price,
+		product_quantity, product_seller, product_filename, product_info, category_seq, user_nickname)
+		values (product_seq.nextval, '마스크', 100000,
+		500, 1, '어쩌구.png',
+		'hit', 100, '제로히트');
+        
+DELETE FROM tbl_product WHERE product_name = '마스크';
+

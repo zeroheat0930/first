@@ -140,7 +140,7 @@ start with 10;
 
 create table tbl_reviewboard(
 rev_seq number(10) primary key,
-rev_catagory varchar2(100) not null,
+rev_category varchar2(100) not null,
 rev_title varchar2(100) not null,
 rev_content varchar2(100) not null,
 rev_writer varchar2(100) not null,
@@ -148,7 +148,7 @@ rev_readCnt number(10) default 0,
 rev_filename varchar2(100) not null,
 rev_good number(10) not null,
 rev_hate number(10) not null,
-rev_redate varchar2(100) not null,
+rev_regdate varchar2(100) not null,
 rev_updatedate varchar2(100) not null,
 rev_replyCnt number(10) default 0
 );
@@ -165,7 +165,8 @@ product_info varchar2(100) not null,
 category_seq number(10) not null,
 product_readcnt number(38) default 0,
 product_status number(38) default 0,
-product_redate date,
+product_regdate date,
 product_updatedate date,
 product_like number(38) default 0
 );
+

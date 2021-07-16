@@ -10,17 +10,14 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-	<!-- 
+	 
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://13.124.135.12/test"></property>
-	 -->
-	 	<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://13.124.135.12/test"></property> -->
-		
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property> 
+		<!-- 
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mariadb://13.124.135.12/untact"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="wnddkdwjdqhcjfl1"></property>
+		<property name="jdbcUrl" value="jdbc:mariadb://13.124.135.12/untact"></property> -->
+		<property name="username" value="book_ex"></property>
+		<property name="password" value="1973"></property>
 		<property name="maximumPoolSize" value="1"></property>
 	</bean>
 	

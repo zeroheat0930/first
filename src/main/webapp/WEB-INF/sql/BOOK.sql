@@ -1,38 +1,81 @@
 CREATE SEQUENCE reply_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence reply_Seq;*/
 
 create sequence user_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence user_Seq;*/
 
 create sequence reply_boardseq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
 
-create sequence gq_seq
-increment by 10
-start with 10;
+/*drop sequence reply_boardseq;*/
+
+create sequence Qa_seq
+increment by 1
+start with 1;
+
+/*drop sequence qa_seq;*/
 
 create sequence free_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence free_seq;*/
 
 create sequence category_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence category_seq;*/
 
 create sequence order_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence order_seq;*/
 
 create sequence product_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence product_seq;*/
 
 create sequence productOption_seq
-increment by 10
-start with 10;
+increment by 1
+start with 1;
+
+/*drop sequence productoption_seq;*/
+
+create sequence order_productseq
+increment by 1
+start with 1;
+
+/*drop sequence order_productseq;*/
+
+create sequence order_userseq
+increment by 1
+start with 1;
+
+/*drop sequence order_userseq;*/
+
+create sequence order_poseq
+increment by 1
+start with 1;
+
+/*drop sequence order_poseq;*/
+
+create sequence rev_seq
+increment by 1
+start with 1;
+
+/*drop sequence rev_seq;*/
+
 
 create table tbl_qaboard(
 qa_seq NUMBER(10) PRIMARY KEY,
@@ -98,18 +141,6 @@ product_seq NUMBER(10),
 	user_seq number(10)
     );
 
-create sequence order_productseq
-increment by 10
-start with 10;
-
-create sequence order_userseq
-increment by 10
-start with 10;
-
-create sequence order_poseq
-increment by 10
-start with 10;
-
 create table tbl_order(
 order_seq number(10) primary key,
 order_status number(38) default 0,
@@ -134,9 +165,6 @@ po_quantity number(38) not null,
 po_price number(38) not null
 );
 
-create sequence rev_seq
-increment by 10
-start with 10;
 
 create table tbl_reviewboard(
 rev_seq number(10) primary key,
@@ -170,19 +198,90 @@ product_updatedate date,
 product_like number(38) default 0
 );
 
+
 create table tbl_category(
 category_seq number(10) primary key,
 category_main varchar2(100) not null,
 category_sub varchar2(100) not null
 );
 
+insert into tbl_category 
+    values (category_seq.nextval, '카테고리', '먼지차단마스크');
+    insert into tbl_category 
+    values (category_seq.nextval, '카테고리', '위생마스크');
+    insert into tbl_category 
+    values (category_seq.nextval, '카테고리', '마스크액세사리');
+    insert into tbl_category 
+    values (category_seq.nextval, '브랜드', 'AER');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '에어데이즈');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '크리넥스');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '언더아머');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '푸름웰니스');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '미마마스크');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '해오름');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '미마');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '에어퀸');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '웰킵스');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', 'ETIQA');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '애니가드');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '네퓨어');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '휴안청');
+        insert into tbl_category 
+    values (category_seq.nextval, '브랜드', '닥터퓨리');
+         insert into tbl_category 
+    values (category_seq.nextval, '차단지수', 'KF94/N95');
+            insert into tbl_category 
+    values (category_seq.nextval, '차단지수', 'KA-AD');
+            insert into tbl_category 
+    values (category_seq.nextval, '차단지수', 'KF80');
+            insert into tbl_category 
+    values (category_seq.nextval, '차단지수', 'KF99/N99');
+            insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '덴탈마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '새부리형마스크');
+                insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '비말차단마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '스포츠마스크');
+                insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '컬러마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '검정마스크');
+                insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '국산마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '여름마스크');
+                insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '유아마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '운동');
+                insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '쿨마스크');
+              insert into tbl_category 
+    values (category_seq.nextval, '키워드추천', '어린이마스크');
+    
+    commit;
+    
 
 
-insert into tbl_product (product_seq, product_name, product_price,
-		product_quantity, product_seller, product_filename, product_info, category_seq, user_nickname)
-		values (product_seq.nextval, '마스크', 100000,
-		500, 1, '어쩌구.png',
-		'hit', 100, '제로히트');
+
+
+
+
         
-DELETE FROM tbl_product WHERE product_name = '마스크';
+
 

@@ -182,23 +182,23 @@ $(document).ready(function() {
 				<div id="map"></div>
 				<div class="container" style="margin-left:-12px;">
 								
-					사업자명 : BCD쇼핑몰 ㅣ 사업자 번호 : 123-45-78901 ㅣ 개인정보관리책임자 : 이원석
-					주소 : 서울특별시 마포구 신촌로 176 5층 501호ㅣ 전화 : 0507-1409-1711안내ㅣ 메일 : lws3793@naver.com
+					사업자명 : 일론마스크 ㅣ 사업자 번호 : 123-45-78901 ㅣ 개인정보관리책임자 : 정동준
+					주소 : 서울 강남구 테헤란로7길 7ㅣ 전화 : 02-561-1911 안내ㅣ 메일 : dongjunkorea@naver.com
 				</div>
 			</div>
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80e0462cf0816d5f855221ad79425d44"></script>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92a45c952d164aafbb2a15b9e8079a49"></script>
 				<script>				
 					$(document).ready(function() {
 						var container = document.getElementById('map');
 						var options = {
-							center: new kakao.maps.LatLng(37.55644880228536, 126.94519155495574),
+							center: new kakao.maps.LatLng(37.49965365677918, 127.03047099839327),
 							level: 3
 						};
 				
 						var map = new kakao.maps.Map(container, options);
 						
 						// 마커가 표시될 위치입니다 
-						var markerPosition  = new kakao.maps.LatLng(37.55644880228536, 126.94519155495574); 
+						var markerPosition  = new kakao.maps.LatLng(37.49965365677918, 127.03047099839327); 
 			
 						// 마커를 생성합니다
 						var marker = new kakao.maps.Marker({

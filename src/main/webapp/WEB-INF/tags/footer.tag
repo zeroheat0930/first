@@ -32,7 +32,7 @@
 			<div id="footdiv">
 				<div class="container" style="margin-left:-12px;">
 					사업자명 : 일론마스크 ㅣ 사업자 번호 : 123-45-78901 ㅣ 개인정보관리책임자 : 정동준
-					주소 : 서울특별시 마포구 신촌로 176 5층 501호ㅣ 전화 : 0507-1409-1711안내ㅣ 메일 : dongjunkorea@naver.com
+					주소 : 서울 강남구 테헤란로7길 7ㅣ 전화 : 02-561-1911 안내ㅣ 메일 : dongjunkorea@naver.com
 				</div>
 			</div>
 		</footer>

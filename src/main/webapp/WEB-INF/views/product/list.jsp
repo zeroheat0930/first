@@ -352,6 +352,7 @@ $(document).ready(function(){
 			
 		</div> 
 		
+		
 		<!-- 페이징용row -->
 		<div class="row d-flex justify-content-center" style="margin-top: 20px;">
 			<div class="col-md-6, col-md-offset-3">

@@ -54,6 +54,7 @@
 			 OR (#{type:VARCHAR} = 'TWC' AND (free_title LIKE '%' || #{keyword:VARCHAR} || '%' OR free_content LIKE '%' || #{keyword:VARCHAR} || '%' OR free_nickname LIKE '%' || #{keyword:VARCHAR} || '%'))			 			 
 		)
 	)
+	as a
    WHERE
     rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND #{pageNum} * #{amount}    
    </select>
@@ -61,18 +62,27 @@
    
     <insert id="insert">
       INSERT INTO tbl_freeboard (free_seq, free_title, free_content, free_writer, free_nickname)
-      VALUES (free_seq.nextval, #{free_title}, #{free_content}, #{free_writer}, #{free_nickname})
+   
+      
+      select case count(*) when 0 then 1 else max(free_seq) + 1 end,#{free_title}, #{free_content}, #{free_writer}, #{free_nickname} from tbl_freeboard
    </insert> 
    
+      <insert id="insertSelectKey">
+      <selectKey keyProperty="free_seq" order="BEFORE" resultType="int">
+      </selectKey>
+  	INSERT INTO tbl_freeboard (free_seq, free_title, free_content, free_writer,free_nickname,free_notice,free_regdate)
+      VALUES (#{free_seq }, #{free_title}, #{free_content}, #{free_writer}, #{free_nickname},#{free_notice},now())
+  </insert>
+   <!--  
    <insert id="insertSelectKey">
       <selectKey keyProperty="free_seq" order="BEFORE" resultType="int">
       SELECT free_seq.nextval FROM dual
       </selectKey>
    
       INSERT INTO tbl_freeboard (free_seq, free_title, free_content, free_writer,free_nickname,free_notice,free_regdate)
-      VALUES (#{free_seq }, #{free_title}, #{free_content}, #{free_writer}, #{free_nickname},#{free_notice},SYSDATE)
+      VALUES (#{free_seq }, #{free_title}, #{free_content}, #{free_writer}, #{free_nickname},#{free_notice},now())
    </insert>
- 
+ -->
    <select id="read" resultType="org.zerock.freeboard.domain.FreeBoardVO">
       SELECT * FROM tbl_freeboard WHERE free_seq = #{free_seq}
    </select>
@@ -86,7 +96,7 @@
    SET		free_title = #{free_title},
      		free_content = #{free_content},
      		free_nickname = #{free_nickname},
-     		free_updatedate = SYSDATE
+     		free_updatedate = now()
    WHERE 	free_seq = #{free_seq}
    </update>
    

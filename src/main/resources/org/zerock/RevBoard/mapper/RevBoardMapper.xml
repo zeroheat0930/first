@@ -49,7 +49,7 @@
 		INSERT INTO tbl_reviewboard (rev_seq, rev_category, rev_title,
 		rev_writer,rev_content, rev_filename, rev_regdate)
 		VALUES (#{rev_seq}, #{rev_category}, #{rev_title}, #{rev_writer},
-		#{rev_content}, #{rev_filename},sysdate)
+		#{rev_content}, #{rev_filename},now())
 	</insert>
 
 	<select id="read" resultType="org.zerock.RevBoard.domain.RevVO">
@@ -66,7 +66,7 @@
 		rev_title = #{rev_title},
 		rev_content = #{rev_content},
 		rev_filename = #{rev_filename},
-		rev_updatedate = SYSDATE
+		rev_updatedate = now()
 		WHERE rev_seq = #{rev_seq}
 	</update>
 
@@ -82,7 +82,7 @@
   ]]>
   			<include refid="criteria"></include>
   			<![CDATA[ 
-  				)
+  				)as a
   				WHERE
   				rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND #{pageNum} * #{amount}
   			
@@ -189,13 +189,15 @@
 	<!-- 좋아요 인서트 -->
 	<insert id="insertCheck">
 		INSERT INTO tbl_goodcheck (goodno, rev_seq, user_seq)
-		VALUES (goodno.nextval, #{rev_seq} , #{user_seq})
+		 select case count(*) when 0 then 1 else max(goodno) + 1 end,#{rev_seq} , #{user_seq} from tbl_goodcheck
+		
 	</insert>
 	
 	<!-- 싫어요 인서트  -->
 	<insert id="hateinsertCheck">
 		INSERT INTO tbl_hatecheck (hateno, rev_seq, user_seq)
-		VALUES (hateno.nextval, #{rev_seq} , #{user_seq})
+		select case count(*) when 0 then 1 else max(hateno) + 1 end, #{rev_seq} , #{user_seq} from tbl_hatecheck
+	
 	</insert>
 	
 	<!-- 싫어요 체크 -->

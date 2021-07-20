@@ -21,7 +21,7 @@
 	-->
 	<!-- 댓글생성 -->
 	<!-- INSERT INTO tbl_reply (reply_seq,reply_boardname,reply_boardseq,reply_content,reply_writer,reply_regdate) 
-		VALUES (reply_seq.nextval, 'RevBoard', 5, '댓글테스트', '장민주', sysdate); -->
+		VALUES (reply_seq.nextval, 'RevBoard', 5, '댓글테스트', '장민주', now()); -->
 	<insert id="insert">
 		INSERT INTO tbl_reply (reply_seq, reply_boardname, reply_boardseq, reply_content, reply_writer, reply_regdate) 
 		VALUES (reply_seq.nextval, 
@@ -29,7 +29,7 @@
 		#{reply_boardseq}, 
 		#{reply_content}, 
 		#{reply_writer}, 
-		SYSDATE )
+		now() )
 	</insert>
 	
 	<!-- 댓글 가져오기 -->
@@ -40,11 +40,11 @@
 	</select>
 	
 	<!-- 댓글 수정 -->
-	<!-- UPDATE tbl_reply SET reply_content = '댓글을 수정해보자' , reply_updatedate = SYSDATE WHERE reply_boardname = 'RevBoard' AND reply_seq = 21; -->
+	<!-- UPDATE tbl_reply SET reply_content = '댓글을 수정해보자' , reply_updatedate = now() WHERE reply_boardname = 'RevBoard' AND reply_seq = 21; -->
 	<update id="update">
 		UPDATE tbl_reply 
 		SET reply_content = #{reply_content},
-		reply_updatedate = SYSDATE
+		reply_updatedate = now()
 		WHERE reply_boardname = 'RevBoard'
 		AND reply_seq = #{reply_seq}
 	</update>

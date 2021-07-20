@@ -10,19 +10,18 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-	 
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property> 
-		<!-- 
+	<!-- 
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mariadb://13.124.135.12/untact"></property> -->
-		<property name="username" value="book_ex"></property>
-		<property name="password" value="1973"></property>
+		<property name="jdbcUrl" value="jdbc:mariadb://13.124.135.12/test"></property>
+	 -->
+	 	<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mariadb://13.124.135.12/untact"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="wnddkdwjdqhcjfl1"></property>
 		<property name="maximumPoolSize" value="1"></property>
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-	      destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>
 	
@@ -30,29 +29,29 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
- 	 <!--  <constructor-arg ref="dataSource" />-->
- 	 <property name="dataSource" ref="dataSource"></property>
+	<bean id="transactionManager" 
+	      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	      <property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-<!-- 	<mybatis-spring:scan base-package="org.zerock.service"/> -->
-  <mybatis-spring:scan base-package="org.zerock.product.mapper"/>
+	 <mybatis-spring:scan base-package="org.zerock.product.mapper"/>
 	<mybatis-spring:scan base-package="org.zerock.RevBoard.mapper"/>
 	<mybatis-spring:scan base-package="org.zerock.user.mapper"/>
 	<mybatis-spring:scan base-package="org.zerock.qaboard.mapper"/>
 	<mybatis-spring:scan base-package="org.zerock.freeboard.mapper"/>
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- <context:component-scan base-package="org.zerock.service"></context:component-scan> -->
- 	<context:component-scan base-package="org.zerock.product.service"></context:component-scan>
+	<context:component-scan base-package="org.zerock.product.service"></context:component-scan>
 	<context:component-scan base-package="org.zerock.qaboard.service"></context:component-scan>
 	<context:component-scan base-package="org.zerock.RevBoard.service"></context:component-scan>
 	<context:component-scan base-package="org.zerock.user.service"></context:component-scan>
 	<context:component-scan base-package="org.zerock.freeboard.service"></context:component-scan>
+
 	
-	
+	<!-- transaction -->
 	<tx:annotation-driven/>
 </beans>
+
 
 
 

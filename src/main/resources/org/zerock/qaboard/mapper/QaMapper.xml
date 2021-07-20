@@ -41,7 +41,7 @@
    <include refid="criteria"></include>
       
    <![CDATA[
-   )
+   )as a
    WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND #{pageNum} * #{amount}
    ]]>
    </select>
@@ -68,7 +68,9 @@
    
    <insert id="insert">
       INSERT INTO tbl_qaboard (qa_seq, qa_category, qa_title, qa_content, qa_writer, qa_secret, qa_regdate, qa_filename) 
-      VALUES (qa_seq.nextval, #{qa_category}, #{qa_title}, #{qa_content}, #{qa_writer}, #{qa_secret}, SYSDATE, #{qa_filename})
+      
+      select case count(*) when 0 then 1 else max(qa_seq) + 1 end,#{qa_category}, #{qa_title}, #{qa_content}, #{qa_writer}, #{qa_secret}, now(), #{qa_filename} from tbl_qaboard
+
    </insert>
    
    <insert id="insertSelectKey">
@@ -76,7 +78,7 @@
          SELECT qa_seq.nextval FROM dual
       </selectKey>
       INSERT INTO tbl_qaboard (qa_seq, qa_category, qa_title, qa_content, qa_writer, qa_secret, qa_regdate, qa_filename) 
-      VALUES (#{qa_seq}, #{qa_category}, #{qa_title}, #{qa_content}, #{qa_writer}, #{qa_secret}, SYSDATE, #{qa_filename})
+      VALUES (#{qa_seq}, #{qa_category}, #{qa_title}, #{qa_content}, #{qa_writer}, #{qa_secret}, now(), #{qa_filename})
    </insert>
    
   
@@ -90,7 +92,7 @@
       qa_category = #{qa_category}, 
       qa_title = #{qa_title}, 
       qa_content = #{qa_content}, 
-      qa_updatedate = SYSDATE,
+      qa_updatedate = now(),
       qa_secret = #{qa_secret},
       qa_filename = #{qa_filename} 
       WHERE qa_seq = #{qa_seq}

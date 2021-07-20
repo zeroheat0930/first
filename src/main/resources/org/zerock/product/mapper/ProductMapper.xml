@@ -90,60 +90,66 @@
 		insert into tbl_order (order_seq, order_productseq, order_poseq,
 		order_poname, order_poprice, order_quantity, order_userseq, order_username, 
 		order_useraddress, order_userphone, order_filename, order_status, order_date)
-		values 
-		(order_seq.nextval, #{order_productseq}, #{order_poseq},
+		
+		 select case count(*) when 0 then 1 else max(order_seq) + 1 end,#{order_productseq}, #{order_poseq},
 		#{order_poname}, #{order_poprice}, #{order_quantity},
 		#{order_userseq}, #{order_username}, #{order_useraddress}, 
-		#{order_userphone}, #{order_filename}, #{order_status}, SYSDATE)
+		#{order_userphone}, #{order_filename}, #{order_status}, now() from tbl_order
+		
+	
 	</insert>
 	
 	<insert id="insertOrder">
 		insert into tbl_order (order_seq, order_productseq, order_poseq,
 		order_poname, order_poprice, order_quantity, order_userseq, order_username, 
 		order_useraddress, order_userphone, order_filename, order_status, order_date)
-		values 
-		(order_seq.nextval, #{order_productseq}, #{order_poseq},
+		
+		 select case count(*) when 0 then 1 else max(order_seq) + 1 end,#{order_productseq}, #{order_poseq},
 		#{order_poname}, #{order_poprice}, #{order_quantity},
 		#{order_userseq}, #{order_username}, #{order_useraddress}, 
-		#{order_userphone}, #{order_filename}, #{order_status}, SYSDATE)
+		#{order_userphone}, #{order_filename}, #{order_status}, now() from tbl_order
+		
+		
 	</insert>
 
 	<insert id="directOrder">
 		insert into tbl_order (order_seq, order_productseq, order_poseq,
 		order_poname, order_poprice, order_quantity, order_userseq, order_username, 
 		order_useraddress, order_userphone, order_filename, order_status, order_date)
-		values 
-		(order_seq.nextval, #{order_productseq}, #{order_poseq},
+	 select case count(*) when 0 then 1 else max(order_seq) + 1 end,#{order_productseq}, #{order_poseq},
 		#{order_poname}, #{order_poprice}, #{order_quantity},
 		#{order_userseq}, #{order_username}, #{order_useraddress}, 
-		#{order_userphone}, #{order_filename}, 1, SYSDATE)
+		#{order_userphone}, #{order_filename}, #{order_status}, now() from tbl_order
 	</insert>
 	
 	<update id="updateOrder">
 		UPDATE tbl_order
 		SET
 		order_status = 1,
-		order_date = sysdate
+		order_date = now()
 		WHERE
 		order_seq = #{order_seq}
 	</update>
 
 	<insert id="insertProductOption" >
 		insert into tbl_productoption (productoption_seq, product_seq, po_name, po_quantity, po_price
-		) values 
-		 (productoption_seq.nextval
-		 ,#{product_seq}
+		) 
+		
+		 select case count(*) when 0 then 1 else max(productoption_seq) + 1 end,#{product_seq}
 		 ,#{po_name}
 		 ,#{po_quantity}
-		 ,#{po_price})
+		 ,#{po_price} from tbl_productoption
+		
+		
 	</insert>
 	
 	<insert id="insert">
 		insert into tbl_product (product_seq, product_name, product_price,
 		product_quantity, product_seller, product_filename, product_info, category_seq, user_nickname)
-		values (product_seq.nextval, #{product_name}, #{product_price},
+		select case count(*) when 0 then 1 else max(productoption_seq) + 1 end,#{product_name}, #{product_price},
 		#{product_quantity}, #{product_seller}, #{product_filename},
-		#{product_info}, #{category_seq}, #{user_nickname})
+		#{product_info}, #{category_seq}, #{user_nickname} from tbl_productoption
+		
 	</insert>
 	
 	<select id="getProductOptionList" resultType="org.zerock.product.domain.ProductOptionVO">
@@ -231,7 +237,7 @@
 		<include refid="criteria"></include>
    
 <![CDATA[
-    )
+    )as a
    WHERE
     rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND #{pageNum} * #{amount}
 ]]>
@@ -268,7 +274,7 @@
 		product_info = #{product_info},
 		category_seq = #{category_seq},
 		user_nickname = #{user_nickname},
-		product_updateDate = sysdate
+		product_updateDate = now()
 		WHERE
 		product_seq = #{product_seq}
 	</update>
@@ -277,7 +283,7 @@
 		UPDATE tbl_product
 		SET
 		product_status = 1,
-		product_updateDate = sysdate
+		product_updateDate = now()
 		WHERE
 		product_seq = #{product_seq}
 	</update>

@@ -9,13 +9,14 @@
 	<insert id="insert">
 		INSERT INTO tbl_reply (reply_seq, reply_boardname,
 		reply_boardseq, reply_content, reply_writer, reply_regdate)
-		VALUES
-		(reply_seq.nextval,
-		'freeboard',
+		select case count(*) when 0 then 1 else max(reply_seq) + 1 end,'freeboard',
 		#{reply_boardseq},
 		#{reply_content},
 		#{reply_writer},
-		SYSDATE)
+		now() from tbl_reply
+		
+		
+
 	</insert>
 
 	<select id="read" resultType="org.zerock.freeboard.domain.FreeBoardReplyVO">
@@ -32,7 +33,7 @@
 
 	<update id="update">
 		UPDATE tbl_reply SET reply_content =
-		#{reply_content}, reply_updatedate = sysdate
+		#{reply_content}, reply_updatedate = now()
 		WHERE reply_seq =
 		#{reply_seq}
 	</update>

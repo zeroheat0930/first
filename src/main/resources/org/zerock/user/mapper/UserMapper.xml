@@ -13,8 +13,9 @@
 	<insert id="insert">
 		insert into tbl_user (user_seq, user_id, user_name, user_nickname, user_password, user_address,
 		user_addresscode, user_phone, user_birth, user_regdate)
-		values (user_seq.nextval, #{user_id}, #{user_name}, #{user_nickname}, #{user_password}, 
-			#{user_address}, #{user_addresscode}, #{user_phone}, #{user_birth}, SYSDATE)
+		select case count(*) when 0 then 1 else max(user_seq) + 1 end,#{user_id}, #{user_name}, #{user_nickname}, #{user_password}, 
+			#{user_address}, #{user_addresscode}, #{user_phone}, #{user_birth},now() from tbl_user
+
 	</insert>
 
 	<sql id="criteria">
@@ -51,7 +52,7 @@
 	]]>
 		<include refid="criteria"></include>
 	<![CDATA[
-			)
+			)as a
 			WHERE
 				rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND #{pageNum} * #{amount}
 	]]>	
@@ -98,7 +99,7 @@
 				order_userseq = #{order_userseq}
 			AND 
 				order_status = 1		
-			)	
+			)	as a
  			WHERE
 				rn BETWEEN (#{cri.pageNum} - 1) * #{cri.amount} + 1 AND #{cri.pageNum} * #{cri.amount}
 	</select>
@@ -119,7 +120,7 @@
 				order_userseq = #{order_userseq}
 			AND
 				order_status = 0 
-			)	
+			)	as a
 			WHERE
 				rn BETWEEN (#{cri.pageNum} - 1) * #{cri.amount} + 1 AND #{cri.pageNum} * #{cri.amount}
 	</select>
@@ -138,7 +139,7 @@
    FROM
       tbl_product
    WHERE user_nickname = #{user_nickname}   
-      )
+      )as a
    WHERE
     	rn BETWEEN (#{cri.pageNum} - 1) * #{cri.amount} + 1 AND #{cri.pageNum} * #{cri.amount}
 	
@@ -201,7 +202,7 @@
 			FROM tbl_order
 			WHERE 
 				order_productseq = #{order_productseq} AND order_status = 2
-			)	
+			)	as a
 			WHERE 
 				rn BETWEEN (#{cri.pageNum} - 1) * #{cri.amount} + 1 AND #{cri.pageNum} * #{cri.amount}	 
 			ORDER BY order_date DESC
@@ -211,7 +212,7 @@
 		UPDATE tbl_order
 		SET
 			order_status = 2,
-			order_date = SYSDATE	
+			order_date = now()	
 		WHERE
 			order_seq = #{order_seq}
 	</update>

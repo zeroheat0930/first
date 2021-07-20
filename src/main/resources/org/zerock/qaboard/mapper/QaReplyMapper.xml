@@ -25,7 +25,7 @@
          SELECT reply_seq.nextval FROM dual
       </selectKey>
       INSERT INTO tbl_reply (reply_seq, reply_content, reply_writer, reply_regdate, reply_boardname, reply_boardseq) 
-      VALUES (#{reply_seq}, #{reply_content}, #{reply_writer}, SYSDATE, 'qaboard', #{reply_boardseq})
+      VALUES (#{reply_seq}, #{reply_content}, #{reply_writer}, now(), 'qaboard', #{reply_boardseq})
    </insert>  
    
    <insert id="insertSelectKey_admin">
@@ -33,7 +33,7 @@
          SELECT reply_seq.nextval FROM dual
       </selectKey>
       INSERT INTO tbl_reply (reply_seq, reply_content, reply_writer, reply_regdate, reply_boardname, reply_boardseq) 
-      VALUES (#{reply_seq}, #{reply_content}, #{reply_writer}, SYSDATE, 'qaboard', #{reply_boardseq})
+      VALUES (#{reply_seq}, #{reply_content}, #{reply_writer}, now(), 'qaboard', #{reply_boardseq})
    </insert> 
    
    <delete id="delete">
@@ -47,7 +47,7 @@
 	<update id="update">
 		UPDATE tbl_reply SET 
 		reply_content = #{reply_content}, 
-		reply_updatedate = SYSDATE 
+		reply_updatedate = now() 
 		WHERE reply_seq = #{reply_seq}
 	</update>
 	

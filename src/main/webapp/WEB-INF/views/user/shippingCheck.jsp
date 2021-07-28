@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -268,7 +268,7 @@ tbody {
 	        	<div class="my-row--table ">
 			    <div class="my-col my-width--80 my-align--middle">
 			      <div class="my-ship-track__ship-man-thumb">
-	       				<img src="${root }/resources/logo/BCDLogo3.png" alt="" class="my-col my-ship-track__ship-man-thumb-img">
+	       				<img src="${appRoot }/resources/logo/BCDLogo3.png" alt="" class="my-col my-ship-track__ship-man-thumb-img">
 	   					</div>
 					  </div>
 	 			  	<div class="my-col my-width--300 my-align--middle my-ship-track__dm-info-area" data-log-type="click" data-log-id="1832" data-log-version="4" data-log-payload="{&quot;eventName&quot;: &quot;cdm_info&quot;}" data-has-log-group="shiptrack_meta_info">
@@ -384,7 +384,7 @@ tbody {
 	<c:otherwise>
 		<script>
 			alert('로그인 사용자만 이용 가능합니다.');
-			location.href="${root}/main/mainPage";
+			location.href="${appRoot}/main/mainPage";
 		</script>
 	</c:otherwise>
 </c:choose>

@@ -59,7 +59,7 @@ function checkTree(chk){
 <u:mainNav/>
 <h2> Q&A 글쓰기</h2>
 <div class="container"> 
-	<form action="${root }/qa/register" method="post" enctype="multipart/form-data">
+	<form action="${appRoot }/qa/register" method="post" enctype="multipart/form-data">
 	
 	<!-- type="checkbox" 로딩시 기본으로 체크 되어있도록 설정  -->
 	<!-- label 태그로 글씨가 클릭 되어도 체크 되도록 설정, label for="" 와 input id 동일해야 함 -->

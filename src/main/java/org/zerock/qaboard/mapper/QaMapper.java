@@ -12,7 +12,6 @@ public interface QaMapper {
 	public QaVO read_secret(int seq);
 	
 	public int getTotalCount(Criteria cri);
-	//	SELECT conut(*) FROM tbl_board
 	
 	public List<QaVO> getList();
 	
@@ -21,10 +20,7 @@ public interface QaMapper {
 	public void insert(QaVO board);
 	
 	public void insertSelectKey(QaVO board);
-	// 1. seq_board의 nextval을 먼저 조회(select)
-	// 2. 조회된 nextval을 insert에서 사용
-	
-	
+
 	public int delete(int seq);
 	
 	public int update(QaVO board);

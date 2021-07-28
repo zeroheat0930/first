@@ -46,7 +46,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: "POST",
-			url: '${root}/user/modifyPw',
+			url: '${appRoot}/user/modifyPw',
 			dataType: "JSON",
 			data: {"user_id":user_id, "user_password": user_password},
 			success : function(res) {

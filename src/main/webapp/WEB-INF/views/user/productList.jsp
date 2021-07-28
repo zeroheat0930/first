@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +60,7 @@ function productList(pnum) {
 	var productList = $("#productList").empty();
 	$.ajax({
 		type: "GET",
-		url: "${root}/user/productList2",
+		url: "${appRoot}/user/productList2",
 		data: {"pageNum":pnum, "amount":amount},
 		dataType: "JSON",
 		success: function(res) {
@@ -73,7 +73,7 @@ function productList(pnum) {
 				var checkVal = product_seq;
 				$.ajax({
 					type: "GET",
-					url: "${root}/user/orderList",
+					url: "${appRoot}/user/orderList",
 					dataType: "JSON",
 					data: {"order_productseq": checkVal},
 						async: false,
@@ -95,8 +95,8 @@ function productList(pnum) {
 				
 				var productTbody = '<tr>'
 												  +'<td><input type="checkbox" id="product_seq" name="product_seq" value="'+product_seq+'" /></td>'
-												  +'<td><img alt="상품사진" src="${root }/resources/upload/'+product_filename+'">'
-												  +'<a style= "color: #000;" href="${root}/product/get?product_seq='+product_seq+'">&nbsp;'+product_name+'</a>'+" ["+orderedNum+"]개 주문이 들어왔습니다"+ '</td>'
+												  +'<td><img alt="상품사진" src="${appRoot }/resources/upload/'+product_filename+'">'
+												  +'<a style= "color: #000;" href="${appRoot}/product/get?product_seq='+product_seq+'">&nbsp;'+product_name+'</a>'+" ["+orderedNum+"]개 주문이 들어왔습니다"+ '</td>'
 												  +'<td><p>'+product_price+'원</p></td>'
 												  +'<td><p>'+dateStrings(product_regdate)+'</p></td>';
 				
@@ -143,7 +143,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: "GET",
-			url: "${root}/user/productList2",
+			url: "${appRoot}/user/productList2",
 			dataType: "JSON",
 			//data: {"pageNum":pageNum, "amount":amount},
 			success : function(res) {
@@ -161,7 +161,7 @@ $(document).ready(function() {
 					var checkVal = product_seq;
 					$.ajax({
 						type: "GET",
-						url: "${root}/user/orderList",
+						url: "${appRoot}/user/orderList",
 						dataType: "JSON",
 						data: {"order_productseq": checkVal},
  						async: false,
@@ -183,8 +183,8 @@ $(document).ready(function() {
 					
 					var productTbody = '<tr>'
 													  +'<td><input type="checkbox" id="product_seq" name="product_seq" value="'+product_seq+'" /></td>'
-													  +'<td><img alt="상품사진" src="${root }/resources/upload/'+product_filename+'">'
-													  +'<a style= "color: #000;" href="${root}/product/get?product_seq='+product_seq+'">&nbsp;'+product_name+'</a>'+" ["+orderedNum+"]개 주문이 들어왔습니다"+ '</td>'
+													  +'<td><img alt="상품사진" src="${appRoot }/resources/upload/'+product_filename+'">'
+													  +'<a style= "color: #000;" href="${appRoot}/product/get?product_seq='+product_seq+'">&nbsp;'+product_name+'</a>'+" ["+orderedNum+"]개 주문이 들어왔습니다"+ '</td>'
 													  +'<td><p>'+product_price+'원</p></td>'
 													  +'<td><p>'+dateString(product_regdate)+'</p></td>';
 					
@@ -228,7 +228,7 @@ $(document).ready(function() {
 			
 			$.ajax({
 				type: "GET",
-				url: "${root}/user/orderList",
+				url: "${appRoot}/user/orderList",
 				dataType: "JSON",
 				data: {"order_productseq": checkVal},
 				success: function(res) {
@@ -243,7 +243,7 @@ $(document).ready(function() {
 						
 						var complateTbody = '<tr>'
 															 +'<td><input type="checkbox" id="order_seq" name="order_seq" value="'+order_seq+'" /></td>'
-															 +'<td><a style= "color: #000;" href="${root}/product/get?product_seq='+checkVal+'">&nbsp;'+order_poname+'</a></td>'
+															 +'<td><a style= "color: #000;" href="${appRoot}/product/get?product_seq='+checkVal+'">&nbsp;'+order_poname+'</a></td>'
 															 +'<td>'+order_username+'</td>'
 															 +'<td>'+dateString(order_date)+'</td>'
 															 +'<tr>';
@@ -280,7 +280,7 @@ $(document).ready(function() {
 			return false;
 		}
 	 	
-		location.href="${root}/user/productSend?order_seq="+check_arr;
+		location.href="${appRoot}/user/productSend?order_seq="+check_arr;
 	});
 	
 	$("#defaultList").click(function() {
@@ -315,7 +315,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: "GET",
-			url: "${root}/user/sendList",
+			url: "${appRoot}/user/sendList",
 			dataType: "JSON",
 			success: function(res) {
 				console.log(res);
@@ -334,7 +334,7 @@ $(document).ready(function() {
 					
 					var sendListTbody = '<tr>'
 														 +'<td>'+order_seq+'</td>'
-														 +'<td><a style= "color: #000;" href="${root}/product/get?product_seq='+order_productseq+'">&nbsp;'+order_poname+'</a></td>'
+														 +'<td><a style= "color: #000;" href="${appRoot}/product/get?product_seq='+order_productseq+'">&nbsp;'+order_poname+'</a></td>'
 														 +'<td>'+order_username+'</td>'
 														 +'<td>'+dateString(order_date)+'</td>'
 														 +'<td>'+dateString(arrivalDate)+'</td>'
@@ -480,7 +480,7 @@ p {
 	<c:otherwise>
 		<script>
 			alert('로그인 사용자만 이용 가능합니다.');
-			location.href="${root}/main/mainPage";
+			location.href="${appRoot}/main/mainPage";
 		</script>
 	</c:otherwise>
 </c:choose>	

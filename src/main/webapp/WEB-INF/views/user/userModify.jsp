@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 <script>
 var goPopup = function(){ 
-	var pop = window.open("${root}/user/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+	var pop = window.open("${appRoot}/user/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
 	} 
 	var jusoCallBack = function(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo) { 
 		document.getElementById("zipNo").value = zipNo; 
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		$("#myModal").modal("show");
 		
 		$("#yes").click(function() {
-			$("#modify-form").attr("action", "${root}/user/userDelete");
+			$("#modify-form").attr("action", "${appRoot}/user/userDelete");
 			$("#modify-form").submit();
 		});
 	});
@@ -51,7 +51,7 @@ $(document).ready(function() {
 		$("#myModal").modal("show");
 		
 		$("#yes").click(function() {
-			$("#modify-form").attr("action", "${root}/user/userModify");
+			$("#modify-form").attr("action", "${appRoot}/user/userModify");
 			$("#modify-form").submit();
 		});	
 	});
@@ -86,7 +86,7 @@ $(document).ready(function() {
 			
 			$.ajax({
 			    type: "GET",
-			    url: "${root}/user/duplicateCheck",
+			    url: "${appRoot}/user/duplicateCheck",
 			    dataType : "json",
 			    data: {
 			        "user_nickname" : user_nickname
@@ -233,7 +233,7 @@ $(document).ready(function() {
 			<section id="container">
 				<h3>회원 정보 수정</h3>
 				<input type="hidden" id="phoneNum" value="${read.user_phone }">
-				<form id="modify-form" action="${root}/user/userModify" method="post">
+				<form id="modify-form" action="${appRoot}/user/userModify" method="post">
 				<input type="hidden" name="pageNum" value=${cri.pageNum }>
 				<input type="hidden" name="amount" value=${cri.amount }>
 				<c:if test="${cri.type != null && cri.keyword != null }">
@@ -326,7 +326,7 @@ $(document).ready(function() {
 							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${read.user_regdate }"/></td>
 						</tr>		
 					</table>
-				  <input type="button" value="돌아가기" onclick="location.href='${root}/user/userRead?user_id=${authUser.user_id }'" 
+				  <input type="button" value="돌아가기" onclick="location.href='${appRoot}/user/userRead?user_id=${authUser.user_id }'" 
 							id="btn_list"/> 
 					<input type="submit" onclick="if(!confirm('수정하시겠습니까?')){return false;}" value="수정완료" id="btn_add" />
 				</form>
@@ -356,7 +356,7 @@ $(document).ready(function() {
 	<c:otherwise>
 		<script>
 			alert('본인만 접근 가능합니다.');
-			location.href='${root}/main/mainPage';
+			location.href='${appRoot}/main/mainPage';
 		</script>
 	</c:otherwise>
 </c:choose>

@@ -37,6 +37,8 @@ public interface UserMapper {
 	
 	public int modifyPw(UserVO user);
 	
+	public UserVO read(String userid);
+	
 	public List<OrderVO> orderList(@Param("order_userseq") int order_userseq, @Param("cri") Criteria cri);
 	
 	public List<OrderVO> cartList(@Param("order_userseq") int order_userseq, @Param("cri") Criteria cri);

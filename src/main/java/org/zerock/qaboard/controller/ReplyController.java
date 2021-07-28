@@ -3,8 +3,6 @@ package org.zerock.qaboard.controller;
 
 import java.util.List;
 
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.zerock.qaboard.domain.Criteria;
 import org.zerock.qaboard.domain.QaReplyVO;
 import org.zerock.qaboard.service.QaReplyService;
-
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;

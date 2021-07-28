@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
@@ -197,7 +197,7 @@ p {
 		<div class="container">
 			<section id ="container">
 			
-					<form id="form_order" action="${root }/product/order" method="post">
+					<form id="form_order" action="${appRoot }/product/order" method="post">
 					
 					<h3>결제 페이지</h3><br>
 					
@@ -221,8 +221,8 @@ p {
 										<tr>
 											<td><p><input type="checkbox" id="inputCheckBox${status.index}" name="checkbox" data-index="${status.index}" value="inputCheckBox${status.index}" /></p></td>
 											<td>
-												<img alt="상품사진" src="${root }/resources/upload/${order.order_filename}">
-												<a href="${root}/product/get?product_seq=${order.order_productseq}" style="color: #000; font-weight: 600; font-size: 18px; line-height: 20px;">
+												<img alt="상품사진" src="${appRoot }/resources/upload/${order.order_filename}">
+												<a href="${appRoot}/product/get?product_seq=${order.order_productseq}" style="color: #000; font-weight: 600; font-size: 18px; line-height: 20px;">
 													<c:out value="${order.order_poname }"></c:out>
 												</a>
 											</td>
@@ -337,7 +337,7 @@ p {
 	<c:otherwise>
 		<script>
 			alert('로그인 사용자만 이용 가능합니다.');
-			location.href="${root}/main/mainPage";
+			location.href="${appRoot}/main/mainPage";
 		</script>
 	</c:otherwise>
 </c:choose>	

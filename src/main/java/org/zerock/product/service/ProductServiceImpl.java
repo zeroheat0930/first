@@ -1,9 +1,7 @@
 package org.zerock.product.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +12,6 @@ import org.zerock.product.domain.ProductLikeVO;
 import org.zerock.product.domain.ProductOptionVO;
 import org.zerock.product.domain.ProductVO;
 import org.zerock.product.mapper.ProductMapper;
-import org.zerock.user.domain.UserVO;
 import org.zerock.user.mapper.UserMapper;
 
 import lombok.AllArgsConstructor;

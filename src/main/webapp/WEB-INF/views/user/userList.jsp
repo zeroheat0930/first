@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
@@ -77,7 +77,7 @@ $(document).ready(function(){
 		var result = confirm("정말 삭제하시겠습니까?");
 		
 		if (result) {
-			$("#userCheckDel").attr("action", "${root }/user/userCheckDel");
+			$("#userCheckDel").attr("action", "${appRoot }/user/userCheckDel");
 			$("#userCheckDel").submit();
 		} else {
 			return false;
@@ -97,7 +97,7 @@ $(document).ready(function(){
 			return false;
 		} 
 			form.method = "get";
-			$("#userCheckDel").attr("action", "${root }/user/smsSubmit");
+			$("#userCheckDel").attr("action", "${appRoot }/user/smsSubmit");
 			$("#userCheckDel").submit();
 	});
 	
@@ -259,7 +259,7 @@ function reload() {
 	<c:when test="${authUser.user_grade == 0}">
 		<div class="container">
 		<section id="container">
-		<form action="${root }/user/userCheckDel" id="userCheckDel" name="userCheckDel" method="post">
+		<form action="${appRoot }/user/userCheckDel" id="userCheckDel" name="userCheckDel" method="post">
 			<button type="submit" id="btn_CheckDel"/>선택 삭제</button>
 			<button type="submit" id="btn_smsSubmit"/>문자 전송</button>
 		<table class="table table-hover">
@@ -313,7 +313,7 @@ function reload() {
 		</table>
 		</form>
 		<div class="membersearchbox">
-			<form id="searchForm" action="${root }/user/userList" method="get" >
+			<form id="searchForm" action="${appRoot }/user/userList" method="get" >
 				<div class="pagenation-container d-flex justify-content-center">
 					<select name="type" required style="margin-top: 4px;" class="form-control" id="searchType">
 						<option value=""
@@ -443,7 +443,7 @@ function reload() {
 	<c:otherwise>
 		<script>
 			alert('관리자만 접근 가능합니다.');
-			location.href='${root}/main/mainPage';
+			location.href='${appRoot}/main/mainPage';
 		</script>
 	</c:otherwise>
 </c:choose>

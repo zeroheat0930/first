@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +70,7 @@
 	<div class="container">
 		<section id="container">
 		<h3>회원 탈퇴</h3>
-			<form action="${root }/user/userRemove" method="post">
+			<form action="${appRoot }/user/userRemove" method="post">
 				<input type="hidden" name="user_id" value="${authUser.user_id }">
 			 	<table class="tableBWrite">
 					<tbody>
@@ -93,7 +93,7 @@
 <c:otherwise>
 	<script>
 		alert('본인만 접근 가능합니다.');
-		location.href='${root}/main/mainPage';
+		location.href='${appRoot}/main/mainPage';
 	</script>
 </c:otherwise>
 </c:choose>

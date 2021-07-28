@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %> 
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script>
-var appRoot = '${root}';
+var appRoot = '${appRoot}';
 var seq = ${board.qa_seq};
 var nickname = '${authUser.user_nickname}';
 var grade = '${authUser.user_grade}';
@@ -23,7 +23,7 @@ var img = '${getQafileNameList }';
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-<script src="${root }/resources/js/qa_reply.js"></script>
+<script src="${appRoot }/resources/js/qa_reply.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <style>
 	#container {
@@ -447,7 +447,7 @@ $(document).ready(function() {
 		$("#reply_content_input").mousedown(function() {
 			if (nickname == "") {
 				alert("로그인 후 이용하세요.");
-				location.href = "${root}/user/login";
+				location.href = "${appRoot}/user/login";
 			}
 		});
 	});
@@ -486,7 +486,7 @@ $(document).ready(function() {
 			<div class="bodyWrap">
 				<div class="form-group" style="margin-top:5px;">
 					<c:forEach items="${getQafileNameList }" var="qaImg" varStatus="imgNum">
-						<img onerror="this.src='${root }/resources/noimage.jpg'" src="${root }/resources/qaboard/upload/${qaImg }" width="245px" height="245px">
+						<img onerror="this.src='${appRoot }/resources/noimage.jpg'" src="${appRoot }/resources/qaboard/upload/${qaImg }" width="245px" height="245px">
 					</c:forEach>
 				</div>
 				<p>${board.qa_content }</p>
@@ -502,16 +502,16 @@ $(document).ready(function() {
 		<a id="btn_add" href="${listLink }">목록으로</a> 
 		<!-- 보드 작성자 이름과 로그인 아이디가 같고, 등급이 1인 경우(일반)에만 활성화  -->
 		<c:if test="${board.qa_writer == authUser.user_nickname && authUser.user_grade == 1 }">
-			<a id="btn_add" style="margin-right: 3px;" href="${root }/qa/modify?qa_seq=${board.qa_seq }" >수정</a> 
-			<a id="btn_add" style="margin-right: 3px;" href="${root }/qa/remove?qa_seq=${board.qa_seq }" >삭제</a>				
+			<a id="btn_add" style="margin-right: 3px;" href="${appRoot }/qa/modify?qa_seq=${board.qa_seq }" >수정</a> 
+			<a id="btn_add" style="margin-right: 3px;" href="${appRoot }/qa/remove?qa_seq=${board.qa_seq }" >삭제</a>				
 		</c:if>
 		<!-- 등급이 0 , 곧 관리자 일경우만 모든 게시물 삭제 가능 하도록 활성화 -->
 		<c:if test="${authUser.user_grade == 0 }">
-			<a id="btn_add" style="margin-right: 3px;" href="${root }/qa/remove?qa_seq=${board.qa_seq }">삭제</a>
+			<a id="btn_add" style="margin-right: 3px;" href="${appRoot }/qa/remove?qa_seq=${board.qa_seq }">삭제</a>
 		</c:if>		
  		<!-- 관리자이면서 자신의 글일 경우  -->
  		<c:if test="${authUser.user_grade == 0 && board.qa_writer == authUser.user_nickname }">
-			<a id="btn_add" style="margin-right: 3px;" href="${root }/qa/modify?qa_seq=${board.qa_seq }">수정</a> 
+			<a id="btn_add" style="margin-right: 3px;" href="${appRoot }/qa/modify?qa_seq=${board.qa_seq }">수정</a> 
 		</c:if>
 	<!-- 댓글 작성 폼 -->
 	<div class="recommWritebox">

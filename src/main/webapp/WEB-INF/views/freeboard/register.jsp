@@ -75,7 +75,7 @@ $(document).ready(function (){
 	<div class="container">
 		<section id ="container1">
 				<h2>자유게시판 글 쓰기</h2>
-				<form method="post" id="registerRoot"  action="${root}/freeboard/register">
+				<form method="post" id="registerRoot"  action="${appRoot}/freeboard/register">
 					<!--유저의 grade가  관리자일때만 보여지게  -->
 					<c:if test="${authUser.user_grade == 0}">
 						<input type="checkbox" name="notice" value="n" id="notice_check"><label for="notice_check">&nbsp;공지사항</label> 
@@ -108,4 +108,3 @@ $(document).ready(function (){
 	</div>
 </body>
 </html>
-

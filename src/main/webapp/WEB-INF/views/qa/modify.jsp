@@ -54,7 +54,7 @@
 <div class="container">
 	<section id="container">
 	<h3>게시물 수정</h3>
-			<form id="modify-form" action="${root }/qa/modify" enctype="multipart/form-data" method="post">
+			<form id="modify-form" action="${appRoot }/qa/modify" enctype="multipart/form-data" method="post">
 				<!-- 게시물 번호 히든 처리 -->
 				<input type="hidden" name="qa_seq" value="${board.qa_seq }" type="text" class="form-control"/>
 				<!-- 게시물 수정시 기존의 값이 공개 일경우 라디오버튼이 공개에 체크 되어있도록(라디오) -->
@@ -133,7 +133,7 @@
 				<div class="imgs_wrap">
 					<c:forEach items="${qafileNameList }" var="qa_img">	
 						<div>
-							<img width="200" height="200" src="${root }/resources/qaboard/upload/${qa_img }"/>
+							<img width="200" height="200" src="${appRoot }/resources/qaboard/upload/${qa_img }"/>
 						</div>
 					</c:forEach>
 				</div>

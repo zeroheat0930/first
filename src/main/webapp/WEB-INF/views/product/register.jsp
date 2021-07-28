@@ -18,11 +18,11 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
-var appRoot = '${root }';
+var appRoot = '${appRoot }';
 var productSeq = '${product.product_seq}';
 var userSeq = '${authUser.user_seq}';
 </script>
-<script src="${root }/resources/product_js/category.js"></script>
+<script src="${appRoot }/resources/product_js/category.js"></script>
 <script>
 	$(document).ready(function(){
 				
@@ -206,7 +206,7 @@ table.type05 td {
 	<section id="container">
 	
 		<h3>상품 등록</h3>
-			<form id="form_id" action="${root }/product/register" method="post" enctype="multipart/form-data">
+			<form id="form_id" action="${appRoot }/product/register" method="post" enctype="multipart/form-data">
 				<table class="type05">
 					<tbody>
 						<tr>

@@ -2,6 +2,7 @@ package org.zerock.user.domain;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 

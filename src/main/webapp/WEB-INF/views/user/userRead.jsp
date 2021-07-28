@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +39,7 @@
 				return false;
 			}
 			
-			$("#gradeUpdateFrom").attr("action", "${root }/user/gradeUpdate");
+			$("#gradeUpdateFrom").attr("action", "${appRoot }/user/gradeUpdate");
 			$("#gradeUpdateFrom").submit();
 			
 		});
@@ -200,7 +200,7 @@
 										<div class="d-flex">Lv.${read.user_grade }</div>
 									</c:otherwise>
 								</c:choose>
-				 					<form action="${root }/user/gradeUpdate" id="gradeUpdateFrom" method="post">	
+				 					<form action="${appRoot }/user/gradeUpdate" id="gradeUpdateFrom" method="post">	
 										<div class="d-flex">
 											<input type="hidden" name="user_seq" value="${read.user_seq }">		
 											<input type="hidden" name="user_id" value="${read.user_id }">		
@@ -262,12 +262,12 @@
 							<input type="button" value="목록" onclick="location.href='${listLink}'" id="btn_remove">
 						</c:when>
 						<c:otherwise>
-							<input type="button" value="돌아가기" onclick="location.href='${root}/main/mainPage'" id="btn_remove">
+							<input type="button" value="돌아가기" onclick="location.href='${appRoot}/main/mainPage'" id="btn_remove">
 						</c:otherwise>
 					</c:choose>
 					<c:if test="${authUser.user_id eq read.user_id }">
 						<input type="button" value="수정" onclick="location.href='${modLink}'" id="btn_list">
-						<input type="button" value="탈퇴" onclick="location.href='${root}/user/userRemove'" id="btn_remove">
+						<input type="button" value="탈퇴" onclick="location.href='${appRoot}/user/userRemove'" id="btn_remove">
 					</c:if>
 				</div>
 			</section>	
@@ -277,7 +277,7 @@
 	<c:otherwise>
 		<script>
 			alert('본인만 접근 가능합니다.');
-			location.href='${root}/main/mainPage';
+			location.href='${appRoot}/main/mainPage';
 		</script>
 	</c:otherwise>
 </c:choose>

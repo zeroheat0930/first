@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		$("#buyForm").attr("action", "${root}/user/orderDel");
+		$("#buyForm").attr("action", "${appRoot}/user/orderDel");
 		$("#buyForm").submit();
 	});
 	
@@ -145,7 +145,7 @@ p {
 		<div class="container">
 			<section id ="container">
 			<h3>장바구니</h3><br>
-			<form action="${root }/product/orderFromCart" id="buyForm">
+			<form action="${appRoot }/product/orderFromCart" id="buyForm">
 			<button type="submit" id="buy">구매하기</button>
 			<button type="submit" id="orderDel">삭제</button>
 				<table class="table table-hover">
@@ -162,8 +162,8 @@ p {
 						<tr>
 							<td><p><input type="checkbox" id="order_seq" name="order_seq" value="${cart.order_seq }" /></p></td>
 							<td>
-								<img alt="상품사진" src="${root }/resources/upload/${cart.order_filename}">
-								<a href="${root}/product/get?product_seq=${cart.order_productseq}" style="color: #000; font-weight: 600; font-size: 18px; line-height: 20px;">
+								<img alt="상품사진" src="${appRoot }/resources/upload/${cart.order_filename}">
+								<a href="${appRoot}/product/get?product_seq=${cart.order_productseq}" style="color: #000; font-weight: 600; font-size: 18px; line-height: 20px;">
 									<c:out value="${cart.order_poname }"></c:out>
 								</a>
 							</td>
@@ -221,7 +221,7 @@ p {
 	<c:otherwise>
 		<script>
 			alert('로그인 사용자만 이용 가능합니다.');
-			location.href="${root}/main/mainPage";
+			location.href="${appRoot}/main/mainPage";
 		</script>
 	</c:otherwise>
 </c:choose>	

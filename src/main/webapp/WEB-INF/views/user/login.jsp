@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u"  tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,12 +87,12 @@ html, body {
 <section id="container">
 	<div id="login-page" class="row">
 		<div class="z-depth-1 card-panel" style="margin-left: 255px;">
-      <form class="login-form" action="${root }/user/login" method="post">
+      <form class="login-form" action="${appRoot }/user/login" method="post">
         <div class="row">
           <div class="input-field col s12 center">
             <!-- <img src="images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login"/> -->
             <p class="center login-form-text">
-            	<img alt="noImg" src="${root }/resources/logo/BCDLogo3.png" style="width:40%; height:40%;">
+            	<img alt="noImg" src="${appRoot }/resources/logo/BCDLogo3.png" style="width:40%; height:40%;">
             </p>
           </div>
         </div>
@@ -123,12 +123,12 @@ html, body {
         
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a style="color: #666;" href="${root }/user/userRegister">Register Now!</a></p>
+            <p class="margin medium-small"><a style="color: #666;" href="${appRoot }/user/userRegister">Register Now!</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
          		  <p class="margin right-align medium-small">
-              	<a href="#" style="color: #666;;" onclick="window.open('${root}/user/findId','아이디찾기','width=500px;,height=300px;,location=no,status=no,scrollbars=no');">Forgot id ?</a>&nbsp;&nbsp;&nbsp;
-             		<a href="#" style="color: #666;" onclick="window.open('${root}/user/findPw','비밀번호','width=550px;,height=420px;,location=no,status=no,scrollbars=no');">Forgot password ?</a>
+              	<a href="#" style="color: #666;;" onclick="window.open('${appRoot}/user/findId','아이디찾기','width=500px;,height=300px;,location=no,status=no,scrollbars=no');">Forgot id ?</a>&nbsp;&nbsp;&nbsp;
+             		<a href="#" style="color: #666;" onclick="window.open('${appRoot}/user/findPw','비밀번호','width=550px;,height=420px;,location=no,status=no,scrollbars=no');">Forgot password ?</a>
               </p>
           </div>          
         </div>

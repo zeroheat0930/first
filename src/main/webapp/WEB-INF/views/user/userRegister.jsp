@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u"  tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +56,7 @@ function fnChkByte(obj, maxByte) {
 }
 // 주소 API 관련 스크립트
 var goPopup = function(){ 
-	var pop = window.open("${root}/user/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+	var pop = window.open("${appRoot}/user/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
 	} 
 	var jusoCallBack = function(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo) { 
 		document.getElementById("zipNo").value = zipNo; 
@@ -120,7 +120,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 		    type: "GET",
-		    url: "${root}/user/sendSMS",
+		    url: "${appRoot}/user/sendSMS",
 		    dataType : "json",
 		    data: {
 		        "user_phone" : user_phone
@@ -150,7 +150,7 @@ $(document).ready(function() {
 		var phoneConfirm = $('#phoneConfirm').val();		
 		$.ajax ({
 			type: "GET",
-			url: "${root}/user/authentication",
+			url: "${appRoot}/user/authentication",
 			dataType : "json",
 			data: { "phoneConfirm" : phoneConfirm},
 			success: function(res) {
@@ -185,7 +185,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 		    type: "GET",
-		    url: "${root}/user/duplicateCheck",
+		    url: "${appRoot}/user/duplicateCheck",
 		    dataType : "json",
 		    data: {
 		        "user_id" : user_id
@@ -228,7 +228,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 		    type: "GET",
-		    url: "${root}/user/duplicateCheck",
+		    url: "${appRoot}/user/duplicateCheck",
 		    dataType : "json",
 		    data: {
 		        "user_nickname" : user_nickname
@@ -393,7 +393,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 <section id="container">
 	<div id="login-page" class="row">
 		<div class="z-depth-1 card-panel" style="margin-left: 255px;">
-	    <form class="login-form" action="${root }/user/userRegister" method="post" id="joinForm">
+	    <form class="login-form" action="${appRoot }/user/userRegister" method="post" id="joinForm">
 	      <div class="row">
 	        <div class="input-field col s12 center">
 	          <h4>회원가입</h4>
@@ -518,7 +518,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	        </div>
 	        
 	        <div class="input-field col s12">
-	          <p class="margin center medium-small sign-up">Already have an account? <a style="color: #666;" href="${root }/user/login">Login</a></p>
+	          <p class="margin center medium-small sign-up">Already have an account? <a style="color: #666;" href="${appRoot }/user/login">Login</a></p>
 	        </div>
 	      </div>
 	    </form>

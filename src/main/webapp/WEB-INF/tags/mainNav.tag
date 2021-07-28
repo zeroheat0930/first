@@ -7,337 +7,302 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style>
-div.l_header {
+#container {
+    clear: both;
     position: relative;
+    margin: 35px auto 0px;
+    padding: 0 0 50px 0;
+    width: 1000px;
+    z-index: 1;
+}
+#footdiv {
     width: 100%;
-    z-index: 1000;
-    font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", dotum, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: 0;
+    padding: 0 30px 30px 30px;
+    text-align: center;
+    color: gray;
+    white-space: pre-line;
+    bottom:0;
+    margin-bottom: -100px;
 }
-.b_header_gnb {
-    position: relative;
-    background: #fff;
-    z-index: 100;
-}
-.b_header_gnb > .inner {
-    position: relative;
-    width: 1240px;
-    height: 120px;
-    margin: 0 auto;
-}
-.c_gnb_logo {
+#map {
+    width: 600px;
+    height: 300px;
     position: absolute;
-    left: 83px;
-    top: 25px;
-    overflow: hidden;
-    line-height: 400px;
-    background-image: url(${root }/resources/logo/BCDLogo3.png);
-   /*  background-position: -162px 0px; */
-    width: 100px;
-    height: 70px;
-    background-size: 100% 100%;
+    margin-top: -240px;
+    margin-left: 157px;
 }
-.c_gnb_logo a {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.c_gnb_search {
-    position: absolute;
-    left: 196px;
-    top: 35px;
-    width: 510px;
-    height: 50px;
-    padding: 2px 55px 0 27px;
-    border-radius: 25px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    background: #fafafa;
-}
-.skip, .hide, .sr-only {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    margin: -1px;
-    width: 1px;
-    height: 1px;
-}
-caption, legend {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    font-size: 0px;
-    line-height: 0;
-}
-.c_gnb_search .search_text.search_text_ad {
-    color: #999;
-}
-.c_gnb_search .search_text {
-    display: block;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", dotum, sans-serif;
-    letter-spacing: 0;
-    color: #111;
-    outline: none;
-    padding: 0;
-}
-.c_gnb_search .search_button {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    overflow: hidden;
-    line-height: 200px;
-    background-color: #fafafa;
-    background-image: url(${root }/resources/logo/searchbtn.png);
-    width: 43px;
-    height: 43px;
-    background-size: 100% 100%;
-    border-radius: 70%;
+#foothr {
+      margin-bottom: 15rem;
     border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
 }
-.c_gnb_usermenu {
-    position: absolute;
-    top: 36px;
-    right: -8px;
+.card {
+    width:14.1rem;
+    height:30rem;
 }
-dl, ul, ol, menu, li {
-    list-style: none;
-}
-.c_gnb_usermenu > ul > li:first-child {
-    margin-left: 0;
-}
-.c_gnb_usermenu > ul > li {
+.img_box {
+    width: 14.1rem;
+    height:19.0rem;
     position: relative;
-    float: left;
-    margin: 0 0 0 25px;
-    padding: 0 0 15px 0;
 }
-.c_gnb_usermenu > ul > li.my .menu {
-    background-image: url(${root }/resources/logo/user.png);
-    background-position: -190px -45px;
-    width: 47px;
-    height: 45px;
-    background-size: 100% 100%;
-    margin-top: 0px;
+.card img {
+    width: 14.0rem;
+    height:16.0rem;
 }
-.c_gnb_usermenu > ul > li .menu {
-    overflow: hidden;
-    display: block;
-    line-height: 200px;
+.card p{
+    text-overflow:ellipsis;
+    height:40px;
+    line-height:20px;   
+    overflow:hidden;
 }
-a {
-    color: #666;
-    text-decoration: none;
+.cardLine1{
+    text-overflow:ellipsis;
+    height:20px;
+    line-height:20px;   
+    overflow:hidden;
 }
-.c_gnb_usermenu > ul > li.my .c_gnb_layer {
-    width: 170px;
-    left: 0;
-    top: 55px;
-}
-.my:hover .c_gnb_layer {
-	display: block;
-}
-.c_gnb_layer.active {
-    display: block;
-}
-.c_gnb_layer {
-    display: none;
-    position: absolute;
-    -webkit-box-shadow: 0px 6px 24px -8px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(0 0 0 / 36%);
-    box-shadow: 0px 6px 24px -8px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(0 0 0 / 36%);
-    background: #fff;
-    border-radius: 4px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 100;
-}
-.c_gnb_menulist {
-    padding: 10px 0px;
-}
-.c_gnb_menulist a {
-    display: block;
-    height: 35px;
-    padding: 0 10px 0 25px;
-    line-height: 35px;
-    color: #111;
+#btn_plus {
+    color: #fff;
     font-size: 15px;
+    border: none;
+    background: #747474;
+    padding: 0px 30px;
+    line-height: 45px;
+    border-radius: 3px;
+    margin-left: 425px;
+      margin-top: 20px;
+      margin-bottom: -100px;
 }
-.c_gnb_usermenu > ul > li.order .menu {
-    background-image: url(${root }/resources/logo/truck.png);
-    background-position: -106px -72px;
-    width: 53px;
-    height: 45px;
-    background-size: 100% 140%;
+.chat { 
+      position:fixed; 
+      width:130px; 
+      display:inline-block; 
+      top: 34%; /* 창에서 위에서 부터의 높이 */ 
+      background-color: transparent; margin:0; 
 }
-.c_gnb_usermenu > ul > li.cart .menu {
-    background-image: url(${root }/resources/logo/cart.png);
-    background-position: -90px -141px;
-    width: 45px;
-    height: 47px;
-    background-size: 100% 99%;
-}
-.b_header_util {
-    position: relative;
-    -webkit-box-shadow: 0px -2px 12px 0px rgb(0 0 0 / 6%), 0px -1px 4px 0px rgb(0 0 0 / 18%);
-    box-shadow: 0px -2px 12px 0px rgb(0 0 0 / 6%), 0px -1px 4px 0px rgb(0 0 0 / 18%);
+#_chatbox { 
+      /* overflow: scroll; */
+      position:fixed; 
+      width: 262px;
+      display:inline-block;
+      left: 5px; 
+      top: 45%; /* 창에서 위에서 부터의 높이 */ 
+      background-color: transparent; margin:0; 
+} 
+/* #messageWindow {
+      overflow: scroll;
+      width: 214px;
+      height:250px; 
+      margin-left: 20px; 
+      position: fixed; 
+      top:45%;
+} */
+</style>
+
+<style>
+
+body, code{
+   font: 0.75em "돋움",Dotum,AppleGothic,sans-serif;
+    color: #1c1c1c;
     background: #fff;
 }
-.b_header_util > .inner {
-    position: relative;
-    width: 1240px;
-    height: 66px;
+#header{
+   width: 1280px;
     margin: 0 auto;
-    z-index: 20;
-}
-.c_util_servicelink {
-    zoom: 1;
-}
-.c_util_etc {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 66px;
-    padding: 22px 0 0 0;
-    font-size: 15px;
-    color: #111;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.c_util_servicelink li {
-		float:left;
-		margin-left: 30px;
+    text-align: center;
 }
 
-.c_util_servicelink li a {
+#header_bg {
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    background: #fff;
+}
+.xans-layout-statelogoff a {
+    display: inline;
+    font-size: 11px;
+    line-height: 14px;
+    color: #757575;
+    padding-left: 15px;
+}
+.xans-layout-statelogoff {
+    text-align: center;
+    font-size: 11px;
+    color: #757575;
+    font-family: tahoma;
+    padding: 12px 0;
+    letter-spacing: 1px;
+    *zoom: 1;
+}
+
+img, fieldset {
+    border: none;
+    vertical-align: top;
+}
+
+.xans-layout-logotop {
+    text-align: center;
+    width: 1280px;
+}
+
+.xans-layout-logotop .logo {
+    margin-top: 20px;
+}
+
+.xans-layout-category {
+    margin: 0 auto;
+    width: 1280px;
+    text-align: center;
+    padding-top: 30px;
+    border-bottom: 1px solid /* #ff0000 */ #d3d3d3;
+    clear: both;
+}
+
+.xans-layout-category .postion {
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.xans-layout-category li {
     position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    z-index: 99000;
+}
+
+.xans-layout-category li a {
     display: block;
-    height: 100%;
-    color: #111;
-    font-size: 17px;
-    line-height: 66px;
-    font-family: "11StreetGothic", "Helvetica Neue", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", dotum, sans-serif;
+    height: 34px;
+    padding-top: 6px;
     font-weight: bold;
 }
-.c_util_etc .login_status {
-    margin-top: -2px;
-}
-.c_util_etc .group {
-    float: left;
-    line-height: 22px;
-}
-.c_util_etc .direct_stauts {
-    position: relative;
-    margin: 0 12px 0 12px;
+
+a {
+    text-decoration: none;
+    color: #555;
+    outline: none;
+    selector-dummy: expression(this.hideFocus=true);
 }
 
+#top_cs_line {
+    width: 1280px;
+    margin: 0 auto;
+    clear: both;
+    height: 114px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+#top_cs_line .top_bbs {
+    float: left;
+    padding-top: 38px;
+    width: 420px;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 23px;
+}
+
+#top_cs_line .top_bbs li {
+    float: left;
+    padding-right: 6px;
+}
+
+#top_cs_line .top_cs {
+    float: left;
+    padding-top: 31px;
+}
+
+li {
+    list-style: none;
+}
+
+.xans-layout-searchheader #keyword {
+    width: 238px;
+    height: 23px;
+    padding: 2px 0 0 2px;
+    border: 0;
+    background: #fff;
+    vertical-align: middle;
+    color: #444;
+    font-size: 11px;
+}
+
+input, select, textarea {
+    font-size: 100%;
+    font-family: "돋움",Dotum;
+    color: #1b1b1b;
+    vertical-align: middle;
+}
+.xans-layout-searchheader img {
+    cursor: pointer;
+} 
+
+#top_cs_line .top_search {
+    float: left;
+    padding-top: 34px;
+}
+
+.xans-layout-searchheader fieldset {
+    float: right;
+    line-height: 0;
+    border: 1px solid #d7d7d7;
+}
+
+.box {
+    position: relative;
+    font-size: 0;
+    text-align: left;
+    border: 1px solid #666;
+    border-radius: 21px;
+    box-sizing: border-box;
+    width: 300px;
+}
+
+.box .form_input {
+    display: block;
+    width: 200px;
+    height: 38px;
+    color: #555;
+    padding: 0px;
+    border: 0;
+    border-bottom: 0;
+    margin-left: 24px;
+    font-size: 14px;
+}
+
+.box .btn {
+    position: absolute;
+    top: 5px;
+    right: 23px;
+    z-index: 5;
+}
 </style>
 <body>
-<div class="l_header" role="banner">
-	<div class="b_header_gnb">
-		<div class="inner" id="lws">
-			<h1 class="c_gnb_logo">
-				<a href="${root }/main/mainPage">BCD</a>
-			</h1>
-			<div class="c_gnb_search" id="tSearch">
-				<h2 class="skip">통합검색</h2>
-				<form action="${root }/product/list" method="get">
-					<fieldset>
-						<legend>통합검색</legend>
-						<input name="type" value="TC" hidden="hidden"/>
-						<input type="text" class="search_text search_text_ad" name="keyword" placeholder="통합검색" title="통합검색">
-						<button type="submit" class="search_button">검색</button>
-					</fieldset>
-				</form>		
-			</div>	
-		<div class="c_gnb_usermenu">
-			<h2 class="skip">나의 메뉴</h2>
-			<ul>
-				<li class="my" data-log-actionid-area="header_util" data-log-actionid-label="my11st">
-					<a href="${root }/user/userRead?user_id=${authUser.user_id}" class="menu" id="menu"></a>
-					<div class="c_gnb_layer">
-						<ul class="c_gnb_menulist">
-							<li>
-								<a href="#" data-log-actionid-area="header_util" data-log-actionid-label="coupon">나의 쿠폰</a>
-							</li>
-							<li>
-								<a href="${root }/user/productList" >판매 목록</a>
-							</li>
-							<li>
-								<a href="${root }/user/userOrderList" >주문/배송조회</a>
-							</li>
-							<li>
-								<a href="#" >취소/반품/교환</a>
-							</li>
-							<li>
-								<a href="${root }/qa/list" >고객센터</a>
-							</li>
-							<li>
-								<a href="${root }/user/userRead?user_id=${authUser.user_id}">회원정보</a>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li class="order">
-					<a href="${root }/user/userOrderList" data-log-actionid-area="header_util" data-log-actionid-label="orderdlv_inquiry" class="menu">주문</a>
-				</li>
-				<li class="cart">
-					<a href="${root }/user/cart" class="menu" data-log-actionid-area="header_util" data-log-actionid-label="cart">장바구니</a>
-				</li>
-			</ul>
-		</div>
-	</div>		
-		<div class="b_header_util">
-			<div class="inner">
-				<div class="c_util_servicelink">
-					<h2 class="skip">주요서비스 바로가기</h2>
-					<ul>
-						<li>
-							<a href="${root }/main/mainPage" class="" >베스트</a>
-						</li>
-						<li>
-							<a href="${root }/freeboard/list" class="">자유게시판</a>
-						</li>
-						<li>
-							<a href="${root }/qa/list" class="" >Q&A</a>
-						</li>
-						<li>
-							<a href="${root }/rev/list" class="">구매후기</a>
-						</li>
-						<li>
-							<a href="${root }/product/list" class="">상품목록</a>
-						</li>
-						<c:if test="${authUser.user_grade == 0 }">
-							<li>
-								<a href="${root }/user/userList" class="">회원관리</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
-				<div class="c_util_etc">
-					<div class="group login_status">
-						<c:choose>
-							<c:when test="${authUser == null}">
-								<a style="color: #666;" href="${root }/user/login">로그인</a>&nbsp; &nbsp; 
-								<a style="color: #666;" href="${root }/user/userRegister">회원가입</a>
-							</c:when>
-							<c:otherwise>
-								<a style="color: #666;" href="${root }/user/logout">로그아웃</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+<div id="header_bg">
+   <div class="xans-element- xans-layout xans-layout-statelogoff ">
+      <a href="${appRoot }/qa/list">Q&A</a>
+      <a href="${appRoot }/rev/list">Review</a>
+      <a href="${appRoot }/user/cart">Cart</a>
+      <a href="${appRoot }/user/userRead?user_id=${authUser.user_id}">Mypage</a>
+    <c:choose>
+	<c:when test="${authUser == null}">
+      <a href="${appRoot }/user/login">Log-in</a>
+      <a href="${appRoot }/user/userRegister">Join</a>
+    </c:when>
+    <c:otherwise>
+    	<a href="${appRoot }/user/logout">Log-out</a>
+    </c:otherwise>
+    </c:choose>
+   </span>
+   </div>
+         
 </div>
-</body>
-</html>
+
+<div id="header">                  
+      <div class="logo"><a href="${appRoot }/main/mainPage"><img src="${appRoot }/resources/logo/logo.jpg" alt="로고"></a></div>
+   </div>
+</div>
+
+<div class="xans-element- xans-layout xans-layout-category">
+    <div class="postion">
+   </div>
+</div>
+

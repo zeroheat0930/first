@@ -1,6 +1,6 @@
 // console.log("reply module...");
 
-// ${root}
+// ${appRoot}
 
 var replyService = (function() {
 

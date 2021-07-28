@@ -223,7 +223,7 @@
 }
 </style>
 <script>
-	var appRoot = '${root}'; // 자바스크립트 코드에서 contextPath를 쓰기위해 선언.
+	var appRoot = '${appRoot}'; // 자바스크립트 코드에서 contextPath를 쓰기위해 선언.
 	var rev_seq = ${RevBoard.rev_seq}; 
 	var authUser = '${authUser.user_nickname}';
 	var user_seq = '${authUser.user_seq}';
@@ -244,7 +244,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-<script src="${root }/resources/rev_js/rev.js"></script>
+<script src="${appRoot }/resources/rev_js/rev.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 <script>
 //새 댓글 버튼 클릭 이벤트 처리
@@ -488,7 +488,7 @@ showList();
 		   
 		  $.ajax({
 			  method: "get",
-		      url: "${root}/rev/like", 
+		      url: "${appRoot}/rev/like", 
 		      dataType: "json",
 		      data: {rev_seq: rev_seq, user_seq: user_seq},
 		 	  success: function(res) {
@@ -530,7 +530,7 @@ showList();
 				   
 				  $.ajax({
 					  method: "get",
-				      url: "${root}/rev/hate",
+				      url: "${appRoot}/rev/hate",
 				      dataType: "json",
 				      data: {rev_seq: rev_seq, user_seq: user_seq}, 
 				      success: function(res){	
@@ -556,7 +556,7 @@ showList();
 		 $('#login_add').click(function(){
 			var a = confirm("로그인시 이용가능합니다. 로그인 하시겠습니까?");
 			if (a == true) {
-				location = '${root}/user/login';
+				location = '${appRoot}/user/login';
 			} else if (a == false) {
 			 //alert("로그인시 이용가능 합니다.");	 
 			}
@@ -564,7 +564,7 @@ showList();
 		 $('#login_add2').click(function(){
 			var a = confirm("로그인시 이용가능합니다. 로그인 하시겠습니까?");
 			if (a == true) {
-				location = '${root}/user/login';
+				location = '${appRoot}/user/login';
 			} else if (a == false) {
 			 //alert("로그인시 이용가능 합니다.");	 
 			}
@@ -575,7 +575,7 @@ showList();
 	 	$('#new-reply-button1').click(function(){
 	 		var b = confirm("로그인시 이용가능합니다. 로그인 하시겠습니까?");
 	 		if (b == true) {
-	 		location = '${root}/user/login';
+	 		location = '${appRoot}/user/login';
 	 		} else if (b == false) {
 	 		// 현재페이지
 	 		}
@@ -595,12 +595,10 @@ showList();
 					<p>
 						<strong>카테고리 : </strong>
 						<c:choose>
-							<c:when test="${RevBoard.rev_category eq 1}">모자</c:when>
-							<c:when test="${RevBoard.rev_category eq 2}">신발</c:when>
-							<c:when test="${RevBoard.rev_category eq 3}">상의</c:when>
-							<c:when test="${RevBoard.rev_category eq 4}">하의</c:when>
-							<c:when test="${RevBoard.rev_category eq 5}">전자 기기</c:when>
-							<c:otherwise>식품</c:otherwise>
+							<c:when test="${RevBoard.rev_category eq 1}">마스크</c:when>
+							<c:when test="${RevBoard.rev_category eq 2}">악세사리</c:when>
+							<c:when test="${RevBoard.rev_category eq 3}">소독제</c:when>
+							<c:otherwise>진단키트</c:otherwise>
 						</c:choose>
 					</p>
 					<p><strong>조회수 : </strong>${RevBoard.rev_readCnt}</p>
@@ -629,7 +627,7 @@ showList();
 				<div class="form-group" style="margin-top:5px;">
 					<input readonly hidden value="${RevBoard.rev_filename }" type="text" class="form-control" id="input3" />	
 					<c:forEach items="${RevfileNameList }" var="revImg" varStatus="imgNum">
-						<img onerror="this.src='${root }/resources/noimage.jpg'" alt="" src="${root }/resources/upload/${revImg}" height="280px" width="260px">
+						<img onerror="this.src='${appRoot }/resources/noimage.jpg'" alt="" src="${appRoot }/resources/upload/${revImg}" height="280px" width="260px">
 					 </c:forEach>
 				</div>
 				<p>${RevBoard.rev_content }</p>

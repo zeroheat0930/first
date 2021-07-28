@@ -145,5 +145,3 @@ var replyService = (function() {
 		};
 	
 })();
-
-	

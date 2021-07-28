@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -203,7 +203,7 @@ thead {
 					</table>
 					
 			<div id="searchBoxBack" class="row">
-				<form action="${root }/freeboard/list" id="searchForm" class="form-inline my-0">
+				<form action="${appRoot }/freeboard/list" id="searchForm" class="form-inline my-0">
 		      		<select name="type" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
 					   									 <!--여기서의 작성자는 유저의 닉네임 -->
 					    <option value="T" ${pageMaker.cri.type eq 'T' ? 'selected' : '' }>제목</option>
@@ -219,7 +219,7 @@ thead {
 		      <input type="hidden" name="amount" value="${pageMaker.cri.amount }" />
 		      <button id="searchButton" class="btn my-2 my-sm-0 ml-3" type="submit" >검색</button>
 		    	</form>
-		    	<form action="${root }/freeboard/register">
+		    	<form action="${appRoot }/freeboard/register">
 		      <c:if test="${authUser!=null }">
 				<button id="btn_add">글쓰기</button>
 		      </c:if>
@@ -287,18 +287,3 @@ thead {
 <u:footer/> 
 </body>
 </html>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

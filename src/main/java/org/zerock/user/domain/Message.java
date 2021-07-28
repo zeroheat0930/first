@@ -1,3 +1,4 @@
+  
 package org.zerock.user.domain;
 
 import java.util.HashMap;

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +86,7 @@
 	<div class="container">
 		<section id="container">
 				<h1>게시물 수정</h1>
-				<form id="modify-form" method="post" action="${root }/freeboard/modify">
+				<form id="modify-form" method="post" action="${appRoot }/freeboard/modify">
 					<div class="form-group">
 						<input name="free_seq" hidden="hidden" value="${freeVO.free_seq }">
 						<label for="input1">제목</label> <input
@@ -110,18 +110,10 @@
 						<input type="hidden" value="${criteria.type }" name="type">
 						<input type="hidden" value="${criteria.keyword }" name="keyword">
 						<button id ="modify-btn"type="button" class="btn btn-primary">수정</button>
-						<a href="${root}/freeboard/list"  id="goList">목록</a>
+						<a href="${appRoot}/freeboard/list"  id="goList">목록</a>
 				</form>
 		</section>
 	</div>
  <u:footer/>
 </body>
 </html>
-
-
-
-
-
-
-
-

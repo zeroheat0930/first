@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -230,7 +230,7 @@ pre {
 }
 </style>
 <script>
-var appRoot = '${root}';
+var appRoot = '${appRoot}';
 var free_seq = ${freeVO.free_seq};
 var page = ${cri.pageNum};
 var user_id = "${authUser.user_id}";
@@ -246,7 +246,7 @@ var user_grade = "${authUser.user_grade}";
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="${root }/resources/free_js/reply.js"></script>
+<script src="${appRoot }/resources/free_js/reply.js"></script>
 <script>
 	$(document).ready(function() {
 		// 날짜 형식
@@ -430,13 +430,13 @@ var user_grade = "${authUser.user_grade}";
 		<c:param name="keyword" value="${cri.keyword }"></c:param>
 	</c:url>
 	<!-- 유저의 정보가 있고 아이디가 writer와 userid값이 같을때 -->
-		<form action="${root}/freeboard/remove" method="post" id="remove-form">
+		<form action="${appRoot}/freeboard/remove" method="post" id="remove-form">
 			<c:choose> 
 				<c:when test="${authUser.user_id !=null }">
 					<a id="new-reply-button">댓글 작성</a>
 				</c:when>
 				<c:otherwise>
-					<a href="${root }/user/login" id="logoffReply">댓글 작성</a>
+					<a href="${appRoot }/user/login" id="logoffReply">댓글 작성</a>
 				</c:otherwise>
 			</c:choose>
 		<c:if test="${authUser.user_grade==0 || authUser.user_id == freeVO.free_writer}">
@@ -529,6 +529,3 @@ var user_grade = "${authUser.user_grade}";
 	 <u:footer/> 
 </body>
 </html>
-
-
-

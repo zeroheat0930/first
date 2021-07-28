@@ -18,11 +18,11 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
-var appRoot = '${root }';
+var appRoot = '${appRoot }';
 var productSeq = '${product.product_seq}';
 var userSeq = '${authUser.user_seq}';
 </script>
-<script src="${root }/resources/product_js/category.js"></script>
+<script src="${appRoot }/resources/product_js/category.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -234,7 +234,7 @@ table.type05 td {
   <section id="container">
   
   		<h3>상품 정보 수정</h3>
-			<form id="form_id" action="${root }/product/modify" method="post" enctype="multipart/form-data">
+			<form id="form_id" action="${appRoot }/product/modify" method="post" enctype="multipart/form-data">
 				<input name="product_seq" type="number" value="${product.product_seq }" hidden="hidden">
 				<table class="type05">
 					<tbody>
@@ -318,7 +318,7 @@ table.type05 td {
 							<div class="imgs_wrap">
 								<c:forEach items="${fileNamesList }" var="product_img">	
 									<div>
-										<img width="500" src="${root }/resources/upload/${product_img }"/>
+										<img width="500" src="${appRoot }/resources/upload/${product_img }"/>
 									</div>
 								</c:forEach>
 							</div>

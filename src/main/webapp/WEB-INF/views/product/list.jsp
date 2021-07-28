@@ -18,12 +18,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
-<script src="${root }/resources/product_js/category.js"></script>
+<script src="${appRoot }/resources/product_js/category.js"></script>
 
 <title>상품 페이지</title>
 
 <script>
-var appRoot = '${root }';
+var appRoot = '${appRoot }';
 var productSeq = '${product.product_seq}';
 var userSeq = '${authUser.user_seq}';
 </script>
@@ -221,7 +221,7 @@ $(document).ready(function(){
   		
   		<div class="row col-12 ml-1">
   			
-	  		<form id="formArray" action="${root }/product/list">
+	  		<form id="formArray" action="${appRoot }/product/list">
 	          	<input hidden="hidden" name="pageNum" value="${pageDTO.cri.pageNum }"/>
 	          	<input hidden="hidden" name="amount" value="${pageDTO.cri.amount }"/>
 	          	<input hidden="hidden" name="type" value="${pageDTO.cri.type }"/>
@@ -277,7 +277,7 @@ $(document).ready(function(){
 					<div class="card m-2">
 							<div class="img_box">
 								<a href="${productLink }" >
-									<img style="opacity : ${visibility}" src="${root }/resources/upload/${product.product_filename }" alt="Card image cap">
+									<img style="opacity : ${visibility}" src="${appRoot }/resources/upload/${product.product_filename }" alt="Card image cap">
 								</a>
 								<div style="position:absolute;top:45%;left:30%">
 									<c:if test="${product.product_status == 1 }">
@@ -345,7 +345,7 @@ $(document).ready(function(){
 			<div class="mr-1">
 				<c:if test="${not empty authUser.user_id}">
  						<div>
-							<button onclick = "location.href = '${root}/product/register'" class="btn_add">상품 등록</button>
+							<button onclick = "location.href = '${appRoot}/product/register'" class="btn_add">상품 등록</button>
 						</div>
 				</c:if>
 			</div>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@ $(document).ready(function() {
 		var result = confirm("전송하시겠습니까?");
 		
 		if (result) {
-			$("#Submit").attr("action", "${root }/user/smsSubmit");
+			$("#Submit").attr("action", "${appRoot }/user/smsSubmit");
 			$("#Submit").submit();
 		} else {
 			return false;
@@ -82,7 +82,7 @@ $(document).ready(function() {
 	<section id="container">
 	<h3>문자 전송</h3>
 		받는 사람: 
-		<form action="${root }/user/smsSubmit" id="Submit" method="post">
+		<form action="${appRoot }/user/smsSubmit" id="Submit" method="post">
 			<div id="top">
 				<c:forEach items="${user }" var="users">
 					<div>
@@ -101,7 +101,7 @@ $(document).ready(function() {
 	<c:otherwise>
 		<script>
 			alert('관리자만 접근 가능합니다.');
-			location.href='${root}/main/mainPage';
+			location.href='${appRoot}/main/mainPage';
 		</script>
 	</c:otherwise>
 </c:choose>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -330,7 +330,7 @@ $(document).ready(function() {
 							</div>
 							<div class="DesktopOrderBoxHeader__OrderDetailLink-abukv2-2 eNaUsP">
 								<span class="DesktopOrderBoxHeader__OrderDetailLinkText-abukv2-3 jmCVTz">
-									<a id="detail" href="${root}/product/get?product_seq=${orders.order_productseq }">주문 상세 보기 ></a>
+									<a id="detail" href="${appRoot}/product/get?product_seq=${orders.order_productseq }">주문 상세 보기 ></a>
 								</span>
 							</div>
 						</div>	
@@ -354,13 +354,13 @@ $(document).ready(function() {
 														<div class="DesktopProductImageLayout__ProductInfoWrapper-sc-9cwg9-2 OtWkv">
 															<div class="DesktopProductImageLayout__LeftArea-sc-9cwg9-3 aazNk">
 																<a class="SquareImg__Anchor-sc-1uwk3m0-0 XoVxb DesktopProductImageLayout__ProductImage-sc-9cwg9-0 iHCTXb">
-																	<img width="64" height="64" src="${root }/resources/upload/${orders.order_filename}" alt="${orders.order_poname } " class="SquareImg__Img-sc-1uwk3m0-1 cSfzyy">
+																	<img width="64" height="64" src="${appRoot }/resources/upload/${orders.order_filename}" alt="${orders.order_poname } " class="SquareImg__Img-sc-1uwk3m0-1 cSfzyy">
 																</a>
 															</div>
 															<div class="DesktopProductImageLayout__RightArea-sc-9cwg9-5 gnMgPh">
 																<div class="DesktopProductImageLayout__ProductArea-sc-9cwg9-6 gJsjSt">
 																	<div class="DesktopOrderBoxStyle__DesktopOrderBoxProductTextWrapper-gnmni8-9 cbBmbp"></div>
-																	<div onclick="location.href='${root}/product/get?product_seq=${orders.order_productseq }'" 
+																	<div onclick="location.href='${appRoot}/product/get?product_seq=${orders.order_productseq }'" 
 																		class="DesktopOrderBoxStyle__DesktopOrderBoxProductTextWrapper-gnmni8-9 DesktopOrderBoxGoodsBodyText__Paragraph-sc-8q24ha-0 cbBmbp jBDGcA">
 																		<span color="#111111" class="BodyText__BodyTextM-sc-755zt3-1 DesktopOrderBoxGoodsBodyText__ProductText-sc-8q24ha-1 jgZoAn wEFvN">
 																		  ${orders.order_poname }
@@ -391,7 +391,7 @@ $(document).ready(function() {
 										</td>
 										<td class="DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceWrapper-gnmni8-5 kstGdW">
 											<div class="DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceInnerWrapper-gnmni8-6 ebLxeX">
-												<button onclick="location.href='${root}/user/shippingCheck?order_seq=${orders.order_seq }&product_seq=${orders.order_productseq }'" 
+												<button onclick="location.href='${appRoot}/user/shippingCheck?order_seq=${orders.order_seq }&product_seq=${orders.order_productseq }'" 
 													class="RectButton__Wrapper-sc-1k9quwu-0 iBLteB DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceButton-gnmni8-7 kSkBV">
 													배송조회
 												</button> 
@@ -401,11 +401,11 @@ $(document).ready(function() {
 												<button class="RectButton__Wrapper-sc-1k9quwu-0 iBLteB DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceButton-gnmni8-7 kSkBV">
 													반품신청
 												</button>
-												<button onclick="location.href='${root}/rev/list'" 
+												<button onclick="location.href='${appRoot}/rev/list'" 
 												 class="RectButton__Wrapper-sc-1k9quwu-0 iBLteB DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceButton-gnmni8-7 kSkBV">
 													구매후기 쓰기
 												</button>
-												<button onclick="location.href='${root }/qa/list'" class="RectButton__Wrapper-sc-1k9quwu-0 iBLteB DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceButton-gnmni8-7 kSkBV">
+												<button onclick="location.href='${appRoot }/qa/list'" class="RectButton__Wrapper-sc-1k9quwu-0 iBLteB DesktopOrderBoxStyle__DesktopOrderBoxBundleSelfServiceButton-gnmni8-7 kSkBV">
 													판매자 문의하기
 												</button>
 											</div>
@@ -465,7 +465,7 @@ $(document).ready(function() {
 	<c:otherwise>
 		<script>
 			alert('로그인 사용자만 이용 가능합니다.');
-			location.href="${root}/main/mainPage";
+			location.href="${appRoot}/main/mainPage";
 		</script>
 	</c:otherwise>
 </c:choose>

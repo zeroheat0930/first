@@ -291,7 +291,7 @@ input, select, textarea {
     	<a href="${appRoot }/user/logout">Log-out</a>
     </c:otherwise>
     </c:choose>
-   </span>
+  
    </div>
          
 </div>
@@ -299,7 +299,7 @@ input, select, textarea {
 <div id="header">                  
       <div class="logo"><a href="${appRoot }/main/mainPage"><img src="${appRoot }/resources/logo/logo.jpg" alt="로고"></a></div>
    </div>
-</div>
+
 
 <div class="xans-element- xans-layout xans-layout-category">
     <div class="postion">

@@ -1,5 +1,5 @@
 CREATE TABLE tbl_freeboard (
-	free_seq INT(11) PRIMARY KEY AUTO_INCREMENT,
+	free_seq INT(10) PRIMARY KEY AUTO_INCREMENT not null,
     free_title VARCHAR(50) NOT NULL,
     free_content VARCHAR(2000) NOT NULL,
     free_writer VARCHAR(50) NOT NULL,
